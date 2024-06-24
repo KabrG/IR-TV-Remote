@@ -14,10 +14,11 @@
 #include "PinDefinitionsAndMore.h"
 #include <IRremote.hpp> // include the library
 
-const int on_pin = 7;
+const int on_pin = 6;
 const int volume_up_pin = 8;
 const int volume_down_pin = 9;
-const int change_tv = 10;
+const int record_input_pin = 10;
+const int repeat_input_pin = 12;
 
 struct command_controls {
   const uint8_t s_address;
@@ -81,7 +82,6 @@ void sony_control(void) {
    if (on_button == HIGH) {
       // Send the Sony power on command
       IrSender.sendSony(on.s_address, on.s_command, on.s_repeat);
-      Serial.println("here");
    }
    else if (volume_up_button == HIGH) {
       IrSender.sendSony(volume_up.s_address, volume_up.s_command, volume_up.s_repeat);
@@ -94,8 +94,22 @@ void sony_control(void) {
 }
 
 
+void record_ir() {
+    int record_button = digitalRead(record_input_pin);
+    int repeat_input_button = digitalRead(repeat_input_pin);
+
+    if (record_button == HIGH) {
+      
+    }
+    else if (repeat_input_button == HIGH) {
+      
+    }
+  
+}
+
 void loop() {
 
+    record_ir();
     sony_control();
   // If button is pressed send power code command
 //   if (on_button == HIGH) {
@@ -107,7 +121,7 @@ void loop() {
 //   }
 
     // Wait for a while before sending the command again
-    delay(100); // 5-second delay
+    delay(100); // second delay
 }
 
 
