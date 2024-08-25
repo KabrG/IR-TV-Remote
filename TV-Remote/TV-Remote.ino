@@ -134,7 +134,6 @@ void change_tv_mode() {
 }
 
 
-
 void loop() {
 
   if (digitalRead(change_tv_pin) == HIGH) {
@@ -144,7 +143,7 @@ void loop() {
   if (tv_mode == 0) {
     sony_control();
   }
-  else if (tv_mode == 12) {
+  else if (tv_mode == 1) {
     samsung_control();
   }
 
