@@ -1,5 +1,6 @@
 # IR-TV-Remote
-
+## Library Used
+IRremote by Shirriff.
 
 ## Purpose
 Aimed to create a universal remote for a large range of TV's. 
